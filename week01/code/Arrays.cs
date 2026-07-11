@@ -1,3 +1,5 @@
+using System.Globalization;
+
 public static class Arrays
 {
     /// <summary>
@@ -12,8 +14,15 @@ public static class Arrays
         // Remember: Using comments in your program, write down your process for solving this problem
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
-
-        return []; // replace this return statement with your own
+        // step 1: I needed to create a new array of doubles with the size of the length.
+        // step 2: I needed to use a for loop going up to the length and for every integer(i) it went up I would times the chosen number by that i + 1
+        // step 3: I would then return that multiples list to see what values pop up.
+        double[] multiples = new double[length];
+        for (int i = 0; i < length; i++)
+        {
+            multiples[i] = number * (i + 1);
+        }
+        return multiples; // replace this return statement with your own
     }
 
     /// <summary>
@@ -29,5 +38,20 @@ public static class Arrays
         // Remember: Using comments in your program, write down your process for solving this problem
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
+        // step 1: I needed to create a new instance of a list for my rotate list right function to work
+        // step 2: I will loop through the amount of times I need to rotate the list and remove the last numbers the number of times necessary to insert them at the beginning
+        // step 3: I will then clear my original list and add all of the values from my new list to the original data list using AddRange(_data)
+        List<int> _data = new List<int>(data);
+        for (int i = 0; i < amount; i++)
+        {
+            int lastIndex = _data.Count - 1;
+            int lastValue = _data[lastIndex];
+            _data.RemoveAt(lastIndex);
+            _data.Insert(0, lastValue);
+
+        }
+        data.Clear();
+        data.AddRange(_data);
+
     }
 }
