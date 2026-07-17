@@ -1,4 +1,6 @@
-﻿public static class DisplaySums {
+﻿using Microsoft.VisualBasic;
+
+public static class DisplaySums {
     public static void Run() {
         DisplaySumPairs([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
         // Should show something like (order does not matter):
@@ -10,6 +12,16 @@
         Console.WriteLine("------------");
         DisplaySumPairs([-20, -15, -10, -5, 0, 5, 10, 15, 20]);
         // Should show something like (order does not matter):
+        int [] dataSet = [-20, 20, -15, 15, -10, 10, -5, 5];
+        HashSet<int> tenPair = new HashSet<int>();
+        foreach (int i in dataSet)
+        {
+            if (tenPair.Contains(10- i))
+            {
+                
+            }
+            
+        }
         // 10 0
         // 15 -5
         // 20 -10
