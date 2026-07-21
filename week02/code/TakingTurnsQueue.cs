@@ -41,7 +41,7 @@ public class TakingTurnsQueue
         {
             Person person = _people.Dequeue();
 
-            if (person.foreverTurns)
+            if (person.foreverTurns == true)
             {
                 _people.Enqueue(person);
                 return person;

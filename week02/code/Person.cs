@@ -9,7 +9,7 @@ public class Person
         Name = name;
         Turns = turns;
 
-        if (Turns == 0)
+        if (Turns <= 0)
         {
             foreverTurns = true;
         }
