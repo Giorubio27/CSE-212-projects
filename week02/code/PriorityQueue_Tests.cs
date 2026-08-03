@@ -9,7 +9,7 @@ public class PriorityQueueTests
     // Scenario: I want to test to see if the add works in my priority queue tests
     // Expected Result: "5", 5
     // Defect(s) Found: 1. they skip the last item in the priority queue, they arent picking up the highpriority index
-    // 2. 
+    // I fixed this by taking out the Count - 1 and just leaving the Count so that it picks up the last number in the list. I also made the loop start at zero and go all the way
 
     public void TestPriorityQueue_1()
     {
@@ -26,8 +26,8 @@ public class PriorityQueueTests
 
     [TestMethod]
     // Scenario: Having 2 max priorities and having the FIFO rule apply still
-    // Expected Result: 8, 8 
-    // Defect(s) Found: 
+    // Expected Result: 8a, 8 
+    // Defect(s) Found: I had to switch the >= into just a greater than so the the first duplicate entered would be the first out as well(FIFO)
     public void TestPriorityQueue_2()
     {
         var priorityQueue = new PriorityQueue();
@@ -43,11 +43,10 @@ public class PriorityQueueTests
 
 
     }
-
     [TestMethod]
     // Scenario: I want to test to see if the dequeue works when the queue is empty
-    // Expected Result: Noone in queue response
-    // Defect(s) Found: 
+    // Expected Result: No one in queue response
+    // Defect(s) Found: I was able to find the solution and there were no bugs in the original code.
     public void TestPriorityQueue_3()
     {
         var priorityQueue = new PriorityQueue();
@@ -65,6 +64,5 @@ public class PriorityQueueTests
         }
 
     }
-
     // Add more test cases as needed below.
 }
