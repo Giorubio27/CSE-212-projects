@@ -68,8 +68,16 @@ public static class SetsAndMaps
         foreach (var line in File.ReadLines(filename))
         {
             var fields = line.Split(",");
-            
-            // TODO Problem 2 - ADD YOUR CODE HERE
+            string degreeType = fields[3];
+            if (!degrees.ContainsKey(degreeType))
+            {
+                degrees.Add(degreeType, 1);
+            }
+            else
+            {
+                degrees[degreeType]++;
+
+            }   // TODO Problem 2 - ADD YOUR CODE HERE
         }
 
         return degrees;
