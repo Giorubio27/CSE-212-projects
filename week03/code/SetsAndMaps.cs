@@ -1,4 +1,6 @@
+using System.Diagnostics;
 using System.Text.Json;
+using NuGet.Frameworks;
 
 public static class SetsAndMaps
 {
@@ -22,7 +24,31 @@ public static class SetsAndMaps
     public static string[] FindPairs(string[] words)
     {
         // TODO Problem 1 - ADD YOUR CODE HERE
-        return [];
+        HashSet<string> waitingLetters = new HashSet<string>();
+        List<string> matchedPairs = new List<string>();
+
+        foreach (string word in words)
+        {
+            string reversedWord = $"{word[1]}{word[0]}";
+
+            if (word == reversedWord)
+            {
+                continue;
+            }
+            else if (waitingLetters.Contains(reversedWord))
+            {
+                matchedPairs.Add($"{reversedWord} & {word}");
+
+            }
+            else
+            {
+                waitingLetters.Add(word);
+            }
+
+        }
+        Debug.WriteLine(matchedPairs);
+        return matchedPairs.ToArray();
+
     }
 
     /// <summary>
