@@ -102,8 +102,33 @@ public static class SetsAndMaps
     public static bool IsAnagram(string word1, string word2)
     {
         // TODO Problem 3 - ADD YOUR CODE HERE
-        return false;
+        var cleanWord1 = word1.ToLower().Replace(" ", "");
+        var cleanWord2 = word2.ToLower().Replace(" ", "");
+
+        if (cleanWord1.Length != cleanWord2.Length)
+        {
+            return false;
+
+        }
+
+        var letterBank = new Dictionary<char, int>();
+        foreach (char letter in cleanWord1)
+        {
+            letterBank[letter] = letterBank.GetValueOrDefault(letter, 0) + 1;
+        }
+
+        foreach (char letter in cleanWord2)
+        {
+            if (!letterBank.ContainsKey(letter))
+            {
+                return false;
+            }
+
+            letterBank[letter]--;
+        }
+        return true;
     }
+
 
     /// <summary>
     /// This function will read JSON (Javascript Object Notation) data from the 
