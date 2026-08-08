@@ -1,3 +1,5 @@
+using Microsoft.VisualBasic;
+
 /// <summary>
 /// Defines a maze using a dictionary. The dictionary is provided by the
 /// user when the Maze object is created. The dictionary will contain the
@@ -20,9 +22,11 @@ public class Maze
     private int _currX = 1;
     private int _currY = 1;
 
+
     public Maze(Dictionary<ValueTuple<int, int>, bool[]> mazeMap)
     {
         _mazeMap = mazeMap;
+
     }
 
     // TODO Problem 4 - ADD YOUR CODE HERE
@@ -30,9 +34,12 @@ public class Maze
     /// Check to see if you can move left.  If you can, then move.  If you
     /// can't move, throw an InvalidOperationException with the message "Can't go that way!".
     /// </summary>
+    /// 
+
     public void MoveLeft()
     {
         // FILL IN CODE
+
     }
 
     /// <summary>
