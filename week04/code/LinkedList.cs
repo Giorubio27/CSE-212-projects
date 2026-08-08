@@ -186,7 +186,7 @@ public class LinkedList : IEnumerable<int>
                 current.Data = newValue;
 
             }
-            
+
             current = current.Next;
         }
     }
@@ -219,7 +219,12 @@ public class LinkedList : IEnumerable<int>
     public IEnumerable Reverse()
     {
         // TODO Problem 5
-        yield return 0; // replace this line with the correct yield return statement(s)
+        var curr = _tail; // Start at the end since this is a reverse iteration.
+        while (curr is not null)
+        {
+            yield return curr.Data; // Provide (yield) each item to the user
+            curr = curr.Prev; // Go backwards in the linked list
+        } // replace this line with the correct yield return statement(s)
     }
 
     public override string ToString()
