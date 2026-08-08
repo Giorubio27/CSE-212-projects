@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Transactions;
 
 public class LinkedList : IEnumerable<int>
 {
@@ -140,6 +141,34 @@ public class LinkedList : IEnumerable<int>
     public void Remove(int value)
     {
         // TODO Problem 3
+        Node? current = _head;
+
+        while (current is not null)
+        {
+            if (current.Data == value)
+            {
+                if (current == _head)
+                {
+                    RemoveHead();
+                }
+                else if (current == _tail)
+                {
+                    RemoveTail();
+                }
+                else
+                {
+                    current.Next!.Prev = current.Prev;
+                    current.Prev!.Next = current.Next;
+                }
+                return;
+            }
+            current = current.Next;
+
+        }
+
+
+
+
     }
 
     /// <summary>
@@ -148,6 +177,18 @@ public class LinkedList : IEnumerable<int>
     public void Replace(int oldValue, int newValue)
     {
         // TODO Problem 4
+        Node? current = _head;
+
+        while (current is not null)
+        {
+            if (current.Data == oldValue)
+            {
+                current.Data = newValue;
+
+            }
+            
+            current = current.Next;
+        }
     }
 
     /// <summary>
